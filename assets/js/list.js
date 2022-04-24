@@ -46,6 +46,8 @@ const list = [
 
 // -------------------------- Problem 2 ---------------------------
 
+// ---------------------- Main list created -----------------------
+
 const listSection = document.querySelector('.article__list')
 const ulElement = document.createElement('ul')
 
@@ -67,6 +69,44 @@ list.forEach(function(object) {
 
 })
 
+// -----------------------------------------------------------------
 
+// ----------------------- Sub list created ------------------------
+
+const menu = document.querySelectorAll('li')
+
+menu.forEach(function(item) {
+
+    const id = Number(item.dataset.id)
+
+    const children = list.filter(function(element) {
+
+        return element.parentId === id
+    
+    })
+
+    if (children.length) {
+
+        const subUlElement = document.createElement('ul')
+        item.appendChild(subUlElement)
+
+        children.forEach(function(object) {
+
+            const subLiElement = document.createElement('li')
+            const subAElement = document.createElement('a')
+
+            subAElement.href = object.link
+            subAElement.innerHTML = object.text
+
+            subUlElement.appendChild(subLiElement)
+            subLiElement.appendChild(subAElement)
+
+        })
+
+    } 
+    
+})
+
+// -----------------------------------------------------------------
 
 // -----------------------End of problem 2 ------------------------
