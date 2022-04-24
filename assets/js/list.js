@@ -43,3 +43,30 @@ const list = [
         link: '#Osadzanie',
     }
 ];
+
+// -------------------------- Problem 2 ---------------------------
+
+const listSection = document.querySelector('.article__list')
+const ulElement = document.createElement('ul')
+
+listSection.appendChild(ulElement)
+
+list.forEach(function(object) {
+
+    if (object.parentId === null) {
+        const liElement = document.createElement('li')
+        const aElement = document.createElement('a')
+
+        liElement.dataset.id = object.id
+        aElement.href = object.link
+        aElement.innerHTML = object.text
+        
+        ulElement.appendChild(liElement)
+        liElement.appendChild(aElement)
+    }
+
+})
+
+
+
+// -----------------------End of problem 2 ------------------------
