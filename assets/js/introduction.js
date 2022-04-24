@@ -1,3 +1,5 @@
+// -------------------------- Problem 1 --------------------------------
+
 const tooltipElements = document.querySelectorAll('.tooltip')
 
 tooltipElements.forEach(function(span) {
@@ -5,13 +7,13 @@ tooltipElements.forEach(function(span) {
     const aElement = document.createElement('a')
     const spanElement = document.createElement('span')
 
-    // ----------------- a attributes created ------------------------
+    // ----------------- a attributes created --------------------------
     aElement.innerHTML = span.innerText
     aElement.href = span.dataset.url
     span.innerHTML = ''
-    // --------------------------------------------------------------
+    // -----------------------------------------------------------------
 
-    // ----------------- span attributes created ---------------------
+    // ----------------- span attributes created -----------------------
     if (span.dataset.tooltipType === 'image') {
 
         spanElement.classList.add('tooltip__box', 'tooltip__box--image')
@@ -27,9 +29,11 @@ tooltipElements.forEach(function(span) {
         spanElement.innerHTML = span.dataset.tooltipContent
 
     }
-    // --------------------------------------------------------------
+    // ----------------------------------------------------------------
 
     span.appendChild(aElement)
     span.appendChild(spanElement)
 
 })
+
+// ----------------------End of problem 1 -----------------------------
